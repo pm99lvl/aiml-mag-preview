@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI/ML mag — превью дизайна (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  --paper:#f5f1e8; --surface:#fffdf7; --surface-alt:#efe9da; --ink:#1a1410;
+  --ink-soft:#2a221c; --text:#1a1410; --muted:#6b6258; --muted-d:rgba(253,246,238,.62);
+  --accent:#d4513a; --accent-d:#b3402c; --accent-soft:#f7e6df; --bone:#e5e0d4;
+  --shadow:0 18px 42px rgba(41,35,25,.10); --shadow-sm:0 8px 22px rgba(41,35,25,.07);
+  --radius:14px; --radius-lg:22px; --pill:999px;
+  --head:"Instrument Serif",Georgia,serif; --body:"Inter",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--text);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1280px,92vw);margin-inline:auto}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em}
+.serif-i{font-family:var(--head);font-style:italic;font-weight:400}
+
+/* ── Topbar ── */
+.topbar{border-bottom:1px solid var(--bone);background:var(--surface-alt)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:40px}
+.topbar nav{display:flex;gap:24px}
+.topbar nav a{font-size:12.5px;color:var(--muted)}
+.topbar nav a:hover{color:var(--text)}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.topbar-phone{font-size:13px;font-weight:600}
+.callback{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;border:none;border-radius:var(--pill);padding:7px 14px;cursor:pointer}
+
+/* ── Masthead ── */
+.masthead{background:var(--surface);border-bottom:1px solid var(--bone);position:sticky;top:0;z-index:20}
+.masthead .wrap{display:flex;align-items:center;gap:20px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:52px;height:52px;border-radius:13px;background:var(--ink);color:#fff;line-height:1}
+.brand-mark .bm-1{font-weight:800;font-size:14px;letter-spacing:.5px}
+.brand-mark .bm-2{font-weight:700;font-size:12px;letter-spacing:1.5px;color:#fff}
+.brand-mark .bs{color:var(--accent)}
+.brand-tag{font-size:12.5px;color:var(--muted);max-width:130px;line-height:1.25}
+.cat-btn{display:inline-flex;align-items:center;gap:9px;height:46px;padding:0 20px;border-radius:var(--pill);background:var(--accent);color:#fff;font-weight:700;font-size:15px;border:none;cursor:pointer;flex-shrink:0}
+.search{flex:1;display:flex;align-items:center;height:46px;border:1.5px solid var(--bone);border-radius:var(--pill);background:var(--surface-alt);padding:0 6px 0 18px;max-width:560px}
+.search input{flex:1;border:none;background:none;outline:none;font-size:14px;font-family:var(--body);color:var(--text)}
+.search input::placeholder{color:var(--muted)}
+.search .sbtn{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;border:none;cursor:pointer}
+.tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+.icon-btn{position:relative;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--bone);background:var(--surface);cursor:pointer}
+.cart-badge{position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px}
+
+/* ── Section rhythm ── */
+section{margin-top:clamp(40px,5vw,64px)}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.h2{font-family:var(--head);font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.02;letter-spacing:-.01em}
+.block-head{margin-bottom:28px;max-width:680px}
+
+/* ── Hero (fits cheapest laptop: ~660px usable on 1366×768) ── */
+.hero{margin-top:20px}
+.hero-card{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(28px,3.5vw,48px);align-items:center;
+  background:var(--ink);color:#fff;border-radius:var(--radius-lg);padding:clamp(28px,3.2vw,48px);overflow:hidden;
+  /* ключевое: высота капается под видимый экран минус шапка(~150)+воздух */
+  min-height:min(560px,calc(100svh - 170px));max-height:calc(100svh - 150px)}
+.hero-card::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 88% 12%,rgba(212,81,58,.16),transparent 55%);pointer-events:none}
+.hero-eyebrow{color:var(--muted-d);margin-bottom:clamp(8px,1.4vw,14px)}
+.hero-h1{font-family:var(--body);font-weight:800;font-size:clamp(34px,3.9vw,58px);line-height:.98;letter-spacing:-.035em;color:#fffdf7;margin-bottom:clamp(12px,1.6vw,20px)}
+.hero-h1 em{font-family:var(--head);font-style:italic;font-weight:400;color:var(--accent);letter-spacing:-.01em}
+.hero-h1 .dot{color:var(--accent)}
+.hero-sub{font-size:clamp(15px,1.15vw,17px);line-height:1.55;color:var(--muted-d);max-width:480px;margin-bottom:clamp(18px,2.2vw,28px)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 26px;border-radius:var(--pill);background:var(--accent);color:#fff;font-weight:700;font-size:15px;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--accent-d)}
+.btn-ghost{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:var(--pill);background:transparent;color:#fffdf7;font-weight:600;font-size:15px;border:1.5px solid rgba(253,246,238,.28);cursor:pointer}
+.hero-dots{display:flex;gap:8px;margin-top:clamp(18px,2.4vw,30px)}
+.hero-dots i{width:8px;height:8px;border-radius:50%;background:rgba(253,246,238,.28)}
+.hero-dots i.on{width:26px;border-radius:var(--pill);background:var(--accent)}
+/* hero visual */
+.hero-visual{position:relative;z-index:1}
+.hw-panel{position:relative;background:linear-gradient(160deg,#fffdf7,#f1ebdd);border-radius:18px;padding:26px;box-shadow:0 30px 60px rgba(0,0,0,.34)}
+.hw-tag{position:absolute;top:14px;right:14px;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--accent);background:var(--accent-soft);padding:5px 9px;border-radius:var(--pill)}
+.hw-tag .lv{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(212,81,58,.2)}
+.hw-corner{position:absolute;width:22px;height:22px;border:2.5px solid var(--accent)}
+.hw-corner.tl{top:12px;left:12px;border-right:none;border-bottom:none}
+.hw-corner.br{bottom:84px;right:12px;border-left:none;border-top:none}
+.hw-chips{display:flex;gap:10px;margin-top:18px}
+.hw-chip{flex:1;background:rgba(26,20,16,.04);border:1px solid var(--bone);border-radius:11px;padding:10px 12px}
+.hw-chip b{display:block;font-size:18px;font-weight:800;color:var(--ink)}
+.hw-chip span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ── Mosaic ── */
+.mosaic{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.m-card{position:relative;display:flex;flex-direction:column;border-radius:var(--radius);padding:26px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--bone);box-shadow:var(--shadow-sm);min-height:0}
+.m-card .lbl{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.m-card h3{font-family:var(--head);font-weight:400;font-size:27px;line-height:1.04;margin:8px 0 6px;letter-spacing:-.01em}
+.m-card p{font-size:14px;color:var(--muted);line-height:1.5}
+.m-card .go{margin-top:auto;padding-top:16px;font-weight:700;font-size:13.5px;color:var(--accent)}
+.m-card .art{margin-top:14px}
+.m-a{grid-column:1;grid-row:1 / span 2;background:var(--accent);border-color:var(--accent);color:#fff;justify-content:flex-start}
+.m-a .lbl{color:rgba(255,255,255,.82)}.m-a p{color:rgba(255,255,255,.88)}.m-a .go{color:#fff}
+.m-b{grid-column:2 / 4;grid-row:1}
+.m-b .m-inner{display:flex;align-items:center;gap:22px}
+.m-c{grid-column:2;grid-row:2;background:var(--ink);border-color:var(--ink);color:#fff}
+.m-c .lbl{color:var(--muted-d)}.m-c .go{color:var(--accent)}
+.m-d{grid-column:3;grid-row:2;background:var(--ink-soft);border-color:var(--ink-soft);color:#fff;justify-content:space-between}
+.m-d .go{color:var(--accent)}
+.play{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface);border:1px solid var(--bone);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.stat{padding:30px 32px;border-right:1px solid var(--bone)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:var(--body);font-weight:800;font-size:clamp(30px,3.4vw,42px);letter-spacing:-.02em;color:var(--accent);line-height:1}
+.stat span{display:block;margin-top:9px;font-size:14px;color:var(--muted);max-width:200px}
+
+/* ── Steps ── */
+.steps-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+.badge{flex-shrink:0;display:flex;align-items:center;gap:14px;background:var(--accent);color:#fff;border-radius:var(--radius);padding:16px 22px}
+.badge b{font-family:var(--body);font-weight:800;font-size:46px;line-height:1}
+.badge span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.step{border-top:2px solid var(--ink);padding-top:18px}
+.step .n{font-family:var(--head);font-weight:400;font-size:56px;line-height:.8;color:var(--accent)}
+.step h4{font-size:18px;font-weight:700;margin:14px 0 8px;letter-spacing:-.01em}
+.step p{font-size:14px;color:var(--muted);line-height:1.55}
+
+/* ── Features / bento ── */
+.feat-top{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:28px}
+.feat .ic{color:var(--accent);margin-bottom:12px}
+.feat h4{font-size:18px;font-weight:700;margin-bottom:7px;letter-spacing:-.01em}
+.feat p{font-size:14px;color:var(--muted);line-height:1.55}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:18px}
+.b-card{background:var(--surface);border:1px solid var(--bone);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:8px}
+.b-card .ic{color:var(--accent)}
+.b-card h4{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.b-card p{font-size:13.5px;color:var(--muted);line-height:1.5}
+.b-tall{grid-column:1;grid-row:1 / span 2;background:var(--ink);border-color:var(--ink);color:#fff}
+.b-tall p{color:var(--muted-d)}.b-tall .ic{color:#fff}
+.b-wide{grid-column:2 / 5;grid-row:1;flex-direction:row;align-items:center;gap:26px;background:var(--accent);border-color:var(--accent);color:#fff}
+.b-wide .b-txt{flex:1}.b-wide p{color:rgba(255,255,255,.88)}.b-wide .ic{color:#fff}
+.b-3{grid-column:2;grid-row:2}.b-4{grid-column:3 / 5;grid-row:2}
+/* order mockup */
+.order{flex-shrink:0;width:300px;background:var(--surface);color:var(--text);border-radius:12px;padding:16px 18px;box-shadow:0 16px 30px rgba(0,0,0,.18)}
+.order .oh{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid var(--bone)}
+.order .oh b{font-size:14px}
+.order .ob{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:var(--pill)}
+.order .ol{display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:var(--muted)}
+.order .ol.total{border-top:1px solid var(--bone);margin-top:4px;font-weight:700;color:var(--text)}
+
+/* ── FAQ ── */
+.faq2{display:grid;grid-template-columns:330px 1fr;gap:48px;align-items:start}
+.faq-intro{font-size:14px;color:var(--muted);line-height:1.6;margin-top:12px}
+.faq-row{border-bottom:1px solid var(--bone)}
+.faq-row .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-size:16px;font-weight:700;cursor:pointer}
+.faq-row .q .pm{color:var(--accent);font-size:20px}
+.faq-row.open .a{display:block}
+.faq-row .a{display:none;font-size:14px;color:var(--muted);line-height:1.6;padding:0 0 18px}
+.faq-row.open .q{color:var(--accent)}
+
+/* ── CTA ── */
+.cta{display:flex;align-items:center;justify-content:space-between;gap:32px;background:var(--ink);color:#fff;border-radius:var(--radius-lg);padding:clamp(28px,3.4vw,48px)}
+.cta h3{font-family:var(--head);font-weight:400;font-size:clamp(26px,2.8vw,38px);line-height:1.05}
+.cta p{color:var(--muted-d);margin-top:8px;font-size:15px}
+.cta form{display:flex;gap:10px;flex:1;max-width:520px}
+.cta input{flex:1;height:52px;padding:0 20px;border-radius:var(--pill);border:none;font-size:14px;font-family:var(--body)}
+
+/* ── Footer ── */
+footer{margin-top:clamp(48px,6vw,80px);background:var(--ink);color:var(--muted-d)}
+footer .wrap{display:flex;justify-content:space-between;gap:40px;padding:48px 0 28px;flex-wrap:wrap}
+.f-brand .brand-name{color:#fff}
+.f-cols{display:flex;gap:64px;flex-wrap:wrap}
+.f-col h5{color:#fff;font-size:13px;font-weight:700;margin-bottom:14px}
+.f-col a{display:block;font-size:13px;color:var(--muted-d);padding:5px 0}
+.f-col a:hover{color:#fff}
+.f-bottom{border-top:1px solid rgba(253,246,238,.12)}
+.f-bottom .wrap{padding:18px 0;font-size:12.5px}
+.note{position:fixed;bottom:14px;left:14px;z-index:50;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:7px 12px;border-radius:var(--pill);opacity:.82}
+
+/* ── Tablet ── */
+@media(max-width:980px){
+  .hero-card{grid-template-columns:1fr;gap:28px;max-height:none;min-height:0}
+  .hw-img{max-height:300px}
+  .mosaic{grid-template-columns:1fr 1fr}.m-a{grid-column:1 / 3;grid-row:auto}.m-b{grid-column:1 / 3;grid-row:auto}.m-c,.m-d{grid-column:auto;grid-row:auto}
+  .stats{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--bone)}
+  .steps,.feat-top{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}.b-tall,.b-wide,.b-3,.b-4{grid-column:auto;grid-row:auto}.b-wide{flex-direction:column;align-items:flex-start}.order{width:100%}
+  .faq2{grid-template-columns:1fr}.cta{flex-direction:column;align-items:stretch}
+}
+/* ── Mobile: compact header (logo + burger), search row below, single column ── */
+@media(max-width:680px){
+  .wrap{width:min(1280px,94vw)}
+  /* topbar utility nav прячем, оставляем только звонок */
+  .topbar nav{display:none}
+  .topbar .wrap{justify-content:flex-end}
+  /* шапка строго: ЛОГО слева + БУРГЕР справа; поиск во второй строке (ТЗ mobile) */
+  .masthead .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:12px;justify-content:space-between}
+  .cat-btn{display:none}              /* «Каталог» уезжает в бургер-меню */
+  .tools .icon-btn{display:none}      /* избранное/корзина — тоже в меню, чтобы не грузить верх */
+  .brand{order:1}
+  .tools{order:2;margin-left:0;gap:0}
+  .search{order:3;flex-basis:100%;max-width:none;height:48px}
+  .burger-m{display:grid !important;place-items:center;width:48px;height:48px;border-radius:13px;border:none;background:var(--ink);color:#fff}
+  /* hero: всё в одну колонку, нормальная высота, кнопки на всю ширину */
+  .hero{margin-top:14px}
+  .hero-card{padding:24px 20px;gap:22px;max-height:none;min-height:0;border-radius:18px}
+  .hero-h1{font-size:clamp(30px,8.5vw,40px)}
+  .hero-sub{font-size:15px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost{justify-content:center;width:100%}
+  .hw-img{max-height:200px}
+  .hw-chips{gap:7px}.hw-chip{padding:8px 9px}.hw-chip b{font-size:16px}
+  /* мозаика и бенто — в один столбец */
+  .mosaic{grid-template-columns:1fr}.m-a,.m-b{grid-column:auto}
+  .m-b .m-inner{flex-direction:column;align-items:flex-start}.m-b .m-photo{width:100%;height:160px}
+  .bento{grid-template-columns:1fr}
+  .stat b{font-size:30px}
+  .steps-head{flex-direction:column;align-items:flex-start}
+  /* секции плотнее */
+  section{margin-top:36px}
+  .h2{font-size:clamp(26px,7vw,34px)}
+  footer .wrap{flex-direction:column;gap:28px}.f-cols{gap:36px}
+}
+
+/* PCB photos */
+.hero-visual{position:relative;z-index:1;display:flex;flex-direction:column;min-height:0}
+.hw-panel{flex:1;display:flex;flex-direction:column;min-height:0}
+.hw-img{width:100%;flex:1;min-height:140px;max-height:clamp(180px,30vh,300px);object-fit:cover;border-radius:12px;display:block}
+.m-card .art img{width:100%;height:170px;object-fit:cover;border-radius:10px;display:block}
+.m-b .m-photo{width:180px;height:140px;object-fit:cover;border-radius:10px;flex-shrink:0;display:block}
+.m-d{position:relative;overflow:hidden}
+.m-d .m-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.m-d::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,20,16,.35),rgba(26,20,16,.85));z-index:1}
+.m-d>*{position:relative;z-index:2}
+</style>
+</head>
+<body>
+<div class="note">Превью дизайна · mockup · код не тронут</div>
+
+<!-- Topbar -->
+<div class="topbar"><div class="wrap">
+  <nav><a>О компании</a><a>Доставка</a><a>Контакты</a><a>Статус заказа</a><a>Личный кабинет</a></nav>
+  <div class="topbar-right"><span class="topbar-phone">8 800 700-40-68</span><button class="callback">Перезвоните мне</button></div>
+</div></div>
+
+<!-- Masthead -->
+<header class="masthead"><div class="wrap">
+  <a class="brand">
+    <span class="brand-mark"><span class="bm-1">Ai<span class="bs">\</span>ML</span><span class="bm-2">mag</span></span>
+    <span class="brand-tag">магазин для инженеров</span>
+  </a>
+  <button class="cat-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    Каталог
+  </button>
+  <div class="search">
+    <input placeholder="Поиск по каталогу: Jetson, камера, LiDAR…">
+    <button class="sbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+  <div class="tools">
+    <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></button>
+    <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-badge">2</span></button>
+    <button class="burger-m" aria-label="Меню" style="display:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</div></header>
+
+<main class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-copy">
+      <span class="eyebrow hero-eyebrow">Интернет-магазин AI/ML железа · 2026</span>
+      <h1 class="hero-h1">Железо для <em>интеллекта</em><br>производства<span class="dot">.</span></h1>
+      <p class="hero-sub">Одноплатники, камеры машинного зрения, LiDAR и робототехника — с ценами, наличием и подбором под проект. Магазин, который инженеры собрали для инженеров.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Перейти в каталог <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn-ghost">Запросить подбор</button>
+      </div>
+      <div class="hero-dots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="hero-visual">
+      <div class="hw-panel">
+        <span class="hw-tag"><span class="lv"></span>LIVE · EDGE CV</span>
+        <span class="hw-corner tl"></span><span class="hw-corner br"></span>
+        <!-- SVG: edge-AI dev board -->
+        <img class="hw-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&q=80&auto=format&fit=crop" alt="Плата edge-AI крупным планом">
+        <div class="hw-chips">
+          <div class="hw-chip"><b>55 864</b><span>позиций</span></div>
+          <div class="hw-chip"><b>30+</b><span>брендов</span></div>
+          <div class="hw-chip"><b>1 день</b><span>счёт</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAIC -->
+<section class="mosaic">
+  <a class="m-card m-a">
+    <span class="lbl">О магазине</span>
+    <h3>Что такое AI/ML&nbsp;mag?</h3>
+    <p>Специализированный магазин AI/ML-железа: каталог с ценами и наличием, оформление онлайн, безнал для юрлиц.</p>
+    <div class="art"><img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=800&q=80&auto=format&fit=crop" alt="Печатная плата"></div>
+    <span class="go">Читать →</span>
+  </a>
+
+  <div class="m-card m-b">
+    <div class="m-inner">
+      <div style="flex:1">
+        <span class="lbl">Как заказать</span>
+        <h3>От поиска до счёта — за&nbsp;1&nbsp;день</h3>
+        <p>Найдите позицию, добавьте в корзину или запросите цену под проект. Счёт по безналу выставим в течение рабочего дня.</p>
+        <span class="go" style="display:inline-block;margin-top:14px">Как это работает →</span>
+      </div>
+      <img class="m-photo" src="https://images.unsplash.com/photo-1623282033815-40b05d96c903?w=700&q=80&auto=format&fit=crop" alt="Печатная плата">
+    </div>
+  </div>
+
+  <a class="m-card m-c">
+    <span class="lbl">Под проект</span>
+    <h3>Запрос цены и подбор</h3>
+    <p>Опишите задачу — соберём спецификацию и предложим цену.</p>
+    <span class="go">Запросить →</span>
+  </a>
+
+  <a class="m-card m-d"><img class="m-bg" src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?w=800&q=80&auto=format&fit=crop" alt="">
+    <span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    <div><h3 style="margin-top:14px">Обзор магазина</h3><span class="go">Смотреть →</span></div>
+  </a>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><b>55 864</b><span>позиции доступны для заказа</span></div>
+  <div class="stat"><b>30+</b><span>брендов AI/ML и робототехники</span></div>
+  <div class="stat"><b>1 день</b><span>срок выставления счёта</span></div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="steps-head">
+    <div><span class="eyebrow">Как это работает</span><h2 class="h2">Нужное железо —<br>за пару кликов</h2></div>
+    <div class="badge"><b>3</b><span>шага<br>к заказу</span></div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h4>Найдите позицию</h4><p>Умный поиск RU+EN с синонимами и фильтры по характеристикам — от платы до LiDAR.</p></div>
+    <div class="step"><div class="n">02</div><h4>В корзину или запрос цены</h4><p>Есть цена — в корзину. Нет — запросите цену под проект одной кнопкой.</p></div>
+    <div class="step"><div class="n">03</div><h4>Оформите заказ</h4><p>Счёт по безналу за 1 рабочий день, доставка по России, статус по номеру.</p></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="block-head"><span class="eyebrow">Почему мы</span><h2 class="h2">Магазин, заточенный под инженеров</h2></div>
+  <div class="feat-top">
+    <div class="feat"><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><h4>Умный поиск</h4><p>Поиск, фильтры и подбор по характеристикам — находите нужное за секунды.</p></div>
+    <div class="feat"><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 17V5a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12"/><path d="M14 9h4l3 3v5h-7"/><circle cx="6.5" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg></span><h4>Оптимальная поставка</h4><p>Цены и наличие от 30+ брендов, запрос цены под проект.</p></div>
+    <div class="feat"><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 8l-9-5-9 5v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span><h4>Быстрая логистика</h4><p>Доставка по всей России, ПВЗ и адресно, отслеживание заказа.</p></div>
+  </div>
+  <div class="bento">
+    <div class="b-card b-tall">
+      <span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <h4>Только проверенные бренды</h4>
+      <p>30+ брендов: Seeed, Waveshare, NVIDIA Jetson, Livox, Hesai, Dobot, RoboSense…</p>
+    </div>
+    <div class="b-card b-wide">
+      <div class="b-txt"><h4>Личный кабинет</h4><p>История заказов, статусы, документы, повтор заказа и безналичный расчёт.</p></div>
+      <div class="order">
+        <div class="oh"><b>Заказ № 001122</b><span class="ob">В работе</span></div>
+        <div class="ol"><span>Jetson Orin Nano 8GB</span><span>70 000 ₽</span></div>
+        <div class="ol"><span>Камера Luxonis OAK-D</span><span>34 500 ₽</span></div>
+        <div class="ol total"><span>Итого</span><span>104 500 ₽</span></div>
+      </div>
+    </div>
+    <div class="b-card b-3"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></span><h4>Обновление цен</h4><p>Цены и наличие обновляются автоматически по данным производителей.</p></div>
+    <div class="b-card b-4"><span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.5"/></svg></span><h4>Сравнение позиций</h4><p>Удобное сравнение товаров и цен по характеристикам — выбирайте по делу.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq2">
+  <div>
+    <span class="eyebrow">Вопрос — ответ</span>
+    <h2 class="h2">Частые вопросы</h2>
+    <p class="faq-intro">Не нашли ответ? Напишите нам — поможем с подбором и оформлением заказа.</p>
+  </div>
+  <div>
+    <div class="faq-row open"><div class="q">Как сделать заказ?<span class="pm">−</span></div><div class="a">Найдите товар в каталоге, добавьте в корзину и оформите. Если цены нет — нажмите «Запросить цену»: счёт выставим в течение 1 рабочего дня.</div></div>
+    <div class="faq-row"><div class="q">Какая минимальная сумма заказа?<span class="pm">+</span></div><div class="a">Минимальной суммы нет — оформляем от одной позиции. Для проектов запросите цену под спецификацию.</div></div>
+    <div class="faq-row"><div class="q">Есть ли доставка?<span class="pm">+</span></div><div class="a">Да, по всей России — ПЭК и СДЭК до города, ПВЗ или адресно. Доступен самовывоз.</div></div>
+    <div class="faq-row"><div class="q">Как оплатить?<span class="pm">+</span></div><div class="a">Безналичный расчёт по счёту для юрлиц и ИП. Онлайн-оплата подключается по запросу.</div></div>
+    <div class="faq-row"><div class="q">Можно ли запросить цену под проект?<span class="pm">+</span></div><div class="a">Да. Опишите задачу — зрение, edge-AI, LiDAR, робототехника — соберём спецификацию и предложим цену.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div><h3>Остались вопросы?</h3><p>Опишите задачу — ответим в течение рабочего дня и поможем с подбором.</p></div>
+  <form><input placeholder="Что нужно подобрать?"><button class="btn-primary" type="button">Отправить →</button></form>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <a class="brand"><span class="brand-mark"><span class="bm-1">Ai<span class="bs">\</span>ML</span><span class="bm-2">mag</span></span></a>
+      <p style="margin-top:12px;font-size:13px;max-width:240px">Магазин AI/ML и робототехнического оборудования. От инженеров для инженеров.</p>
+    </div>
+    <div class="f-cols">
+      <div class="f-col"><h5>Каталог</h5><a>Одноплатные компьютеры</a><a>Камеры машинного зрения</a><a>LiDAR и сенсоры</a><a>Робототехника</a><a>Все категории →</a></div>
+      <div class="f-col"><h5>Информация</h5><a>О компании</a><a>Доставка и оплата</a><a>Контакты</a><a>Статус заказа</a></div>
+    </div>
+  </div>
+  <div class="f-bottom"><div class="wrap">© 2026 AI/ML mag · магазин для инженеров</div></div>
+</footer>
+</body>
+</html>
