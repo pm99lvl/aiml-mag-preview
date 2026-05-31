@@ -189,20 +189,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:40px;padding:48px 0 
   .bento{grid-template-columns:1fr 1fr}.b-tall,.b-wide,.b-3,.b-4{grid-column:auto;grid-row:auto}.b-wide{flex-direction:column;align-items:flex-start}.order{width:100%}
   .faq2{grid-template-columns:1fr}.cta{flex-direction:column;align-items:stretch}
 }
-/* ── Mobile: compact header (logo + burger), search row below, single column ── */
-@media(max-width:680px){
-  .wrap{width:min(1280px,94vw)}
-  /* topbar utility nav прячем, оставляем только звонок */
+/* ── Header collapse (tablet + phone) at 900px: logo + burger, search row below.
+   Fixes the 768 tablet "dead zone" where the desktop header used to cramp. ── */
+@media(max-width:900px){
   .topbar nav{display:none}
   .topbar .wrap{justify-content:flex-end}
-  /* шапка строго: ЛОГО слева + БУРГЕР справа; поиск во второй строке (ТЗ mobile) */
   .masthead .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:12px;gap:12px;justify-content:space-between}
-  .cat-btn{display:none}              /* «Каталог» уезжает в бургер-меню */
-  .tools .icon-btn{display:none}      /* избранное/корзина — тоже в меню, чтобы не грузить верх */
+  .cat-btn{display:none}
+  .tools .icon-btn{display:none}
   .brand{order:1}
   .tools{order:2;margin-left:0;gap:0}
   .search{order:3;flex-basis:100%;max-width:none;height:48px}
   .burger-m{display:grid !important;place-items:center;width:48px;height:48px;border-radius:13px;border:none;background:var(--ink);color:#fff}
+}
+/* ── Phone (≤680): single column, full-width buttons ── */
+@media(max-width:680px){
+  .wrap{width:min(1280px,94vw)}
   /* hero: всё в одну колонку, нормальная высота, кнопки на всю ширину */
   .hero{margin-top:14px}
   .hero-card{padding:24px 20px;gap:22px;max-height:none;min-height:0;border-radius:18px}
@@ -303,7 +305,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:40px;padding:48px 0 
     <span class="lbl">О магазине</span>
     <h3>Что такое AI/ML&nbsp;mag?</h3>
     <p>Специализированный магазин AI/ML-железа: каталог с ценами и наличием, оформление онлайн, безнал для юрлиц.</p>
-    <div class="art"><img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=800&q=80&auto=format&fit=crop" alt="Печатная плата"></div>
+    <div class="art"><img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&q=80&auto=format&fit=crop" alt="Печатная плата крупным планом"></div>
     <span class="go">Читать →</span>
   </a>
 
